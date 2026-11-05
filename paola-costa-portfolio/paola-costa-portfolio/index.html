@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfólio de Paola Costa, estudante de Engenharia de Software e desenvolvedora de sites.">
+<meta property="og:title" content="Paola Costa | Portfólio">
+<meta property="og:description" content="Sites e sistemas web desenvolvidos por Paola Costa.">
+<meta property="og:image" content="img/sedare-1.jpg">
+<title>Paola Costa | Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: navegação preta; abertura escura dividida design | <dev> com editor de código ao centro; trabalhos em cards claros; estudos de caso; sobre e habilidades no escuro; contato */
+/* Visual único e deliberado (grafite + ciano), igual em tema claro e escuro */
+:root{
+  --night:#0C0F11; --char:#14191C; --char-2:#1C2327; --on-dark:#EEF3F4; --on-dark-muted:#93A3A8;
+  --cyan:#2CD3E1; --cyan-ink:#0B7480; --cyan-soft:#E3F7F9;
+  --paper:#FFFFFF; --mist:#F3F5F6; --ink:#12181B; --muted:#5E6B70; --line:#E1E6E8;
+  --display:"Sora", "Segoe UI", system-ui, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--mist);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+.kicker{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.dark{background:var(--char);color:var(--on-dark)}
+
+/* Nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.nav{background:var(--night);color:var(--on-dark);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo i{width:42px;height:42px;border-radius:50%;background:var(--on-dark);color:var(--night);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-style:normal;font-size:15px;letter-spacing:-.02em}
+.logo span{font-family:var(--display);font-weight:600;font-size:15px}
+.menu{display:flex;gap:30px;font-size:15px}
+.menu a{text-decoration:none;color:var(--on-dark-muted)}
+.menu a:hover{color:var(--on-dark)}
+.social{display:flex;gap:10px}
+.social a{font-family:var(--mono);font-size:12px;text-decoration:none;border:1px solid #2A3337;border-radius:999px;padding:6px 12px;color:var(--on-dark)}
+.social a:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(900px 500px at 50% 110%,rgba(44,211,225,.10),transparent 70%),var(--char);color:var(--on-dark)}
+.hero .wrap{padding-block:64px 72px;position:relative;z-index:1}
+.hello{text-align:center;margin-bottom:44px}
+.hello .kicker{color:var(--cyan)}
+.hello h1{font-weight:300;font-size:clamp(26px,3vw,36px);margin-top:12px;color:var(--on-dark)}
+.hello h1 b{font-weight:700}
+.role{margin:10px 0 0;color:var(--on-dark-muted);font-size:15px}
+.split-row{display:grid;grid-template-columns:.85fr minmax(0,1.9fr) .85fr;gap:36px;align-items:center}
+.side{min-width:0}
+.side.left{text-align:right}
+.word{display:block;font-family:var(--display);font-weight:700;font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.04em;margin-bottom:16px}
+.word.dev{font-family:var(--mono);font-weight:500;letter-spacing:-.05em;color:var(--cyan)}
+.side.right .word{font-size:clamp(30px,3.4vw,48px)}
+.side p{margin:0;color:var(--on-dark-muted);font-size:15.5px;max-width:28ch}
+.side.left p{margin-left:auto}
+.flow{min-width:0;background:var(--night);border:1px solid #2A3337;border-radius:10px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.flow-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #222B2F}
+.flow-bar i{width:9px;height:9px;border-radius:50%;background:#2E393D;display:block}
+.flow-bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:var(--on-dark-muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.flow-bar em{white-space:nowrap;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--cyan);border:1px solid rgba(44,211,225,.4);border-radius:999px;padding:2px 9px}
+.code{margin:0;padding:20px 0 22px;font-family:var(--mono);font-size:13px;line-height:1.85;color:var(--on-dark);overflow-x:auto;counter-reset:ln}
+.code span.l{display:block;padding-right:20px;white-space:pre}
+.code span.l::before{counter-increment:ln;content:counter(ln);display:inline-block;width:42px;padding-right:16px;text-align:right;color:#3F4D52}
+.code .k{color:#C792EA}.code .f{color:var(--cyan)}.code .t{color:#F07178}.code .a{color:#FFCB6B}.code .s{color:#C3E88D}.code .c{color:#56666C}
+.code span.hl{background:rgba(44,211,225,.08);box-shadow:inset 2px 0 0 var(--cyan)}
+.status-bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:8px 14px;border-top:1px solid #222B2F;font-family:var(--mono);font-size:11px;color:var(--on-dark-muted)}
+.status-bar b{font-weight:500;color:#5BE3A0}
+.codebg{position:absolute;right:3%;bottom:4%;font-family:var(--mono);font-size:14px;line-height:1.7;color:rgba(238,243,244,.08);white-space:pre;pointer-events:none;text-align:right;z-index:0;margin:0}
+.ring{position:absolute;border:1px solid rgba(44,211,225,.18);border-radius:50%;pointer-events:none;z-index:0}
+.mesh{position:absolute;left:0;bottom:0;width:240px;height:200px;opacity:.25;pointer-events:none;z-index:0}
+.hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:48px}
+.btn{display:inline-block;text-decoration:none;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:14px 24px;border-radius:999px;border:1px solid var(--cyan);background:var(--cyan);color:var(--night);cursor:pointer}
+.btn:hover{background:transparent;color:var(--cyan)}
+.btn.ghost{background:transparent;color:var(--on-dark);border-color:#3A464B}
+.btn.ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* Latest work */
+.latest{padding-block:80px 24px}
+.rule-head{display:flex;align-items:center;gap:24px;margin-bottom:36px}
+.rule-head::before,.rule-head::after{content:"";flex:1;height:1px;background:#CDD5D8}
+.rule-head h2{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--paper);border-radius:6px;text-decoration:none;display:block;overflow:hidden;min-width:0;box-shadow:0 1px 3px rgba(18,24,27,.08);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 36px -18px rgba(18,24,27,.3)}
+.card .pic{background:#E7ECEE;padding:14px 14px 0}
+.card .pic img{display:block;width:100%;height:auto;border-radius:4px 4px 0 0}
+.card .cap{padding:16px 20px 20px}
+.card strong{display:block;font-family:var(--display);font-weight:600;font-size:18px}
+.card span{font-size:14px;color:var(--muted)}
+
+/* Case studies */
+.case{padding-block:88px 16px}
+.case + .case{border-top:1px solid var(--line)}
+.case-head{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;margin-bottom:44px;align-items:start}
+.case-head .kicker{color:var(--cyan-ink);display:block;margin-bottom:14px}
+.case-head h2{font-weight:700;font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.03em}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--mono);font-size:12px;border:1px solid var(--line);background:var(--paper);padding:6px 12px;border-radius:999px;color:var(--muted)}
+.dot{width:7px;height:7px;border-radius:50%;background:#22A36A;display:inline-block}
+.dot.wip{background:#D99A22}
+.case-text{min-width:0;display:grid;gap:22px}
+.case-text p{margin:0;color:var(--muted);font-size:16.5px;max-width:60ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0;border-top:1px solid var(--line);padding-top:18px}
+.facts dt{font-family:var(--display);font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.facts dd{margin:0;font-size:15px}
+.tech{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.tech li{font-family:var(--mono);font-size:12px;background:var(--cyan-soft);color:var(--cyan-ink);padding:4px 10px;border-radius:4px}
+.visit{justify-self:start;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:2px solid var(--cyan);padding-bottom:3px}
+.visit:hover{color:var(--cyan-ink)}
+.note{font-size:14px;color:var(--muted);margin:0}
+.stage{display:grid;grid-template-columns:1fr 240px;gap:28px;align-items:end}
+.frame{min-width:0;background:var(--paper);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(18,24,27,.08),0 24px 48px -28px rgba(18,24,27,.35)}
+.chrome{display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--night)}
+.chrome i{width:9px;height:9px;border-radius:50%;background:#2E393D;display:block}
+.chrome span{margin-left:10px;font-family:var(--mono);font-size:11px;color:var(--on-dark-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.shot{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.mobile{min-width:0;border:8px solid var(--night);border-radius:30px;overflow:hidden;background:var(--night);box-shadow:0 24px 48px -24px rgba(18,24,27,.5)}
+.mobile img{display:block;width:100%;height:auto;border-radius:22px}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.thumb{min-width:0;margin:0}
+.thumb .frame{box-shadow:0 1px 3px rgba(18,24,27,.1)}
+.thumb figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+.highlights{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--line)}
+.highlights div{padding:20px 20px 28px 0;min-width:0}
+.highlights h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.highlights p{margin:0;font-size:14px;color:var(--muted)}
+
+/* About */
+.about .wrap{padding-block:96px;display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.about .kicker{color:var(--cyan)}
+.about h2{font-weight:700;font-size:clamp(30px,3.8vw,46px);line-height:1.1;letter-spacing:-.03em;margin-top:14px}
+.about p{color:var(--on-dark-muted);margin:0 0 16px;max-width:58ch}
+.about p strong{color:var(--on-dark);font-weight:600}
+.skills{display:grid;gap:28px;margin-top:28px}
+.skills h3{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-muted);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{font-family:var(--mono);font-size:13px;border:1px solid #2E393D;padding:7px 12px;border-radius:6px;background:var(--char-2);color:var(--on-dark)}
+.chips.hl li{border-color:rgba(44,211,225,.5);color:var(--cyan)}
+
+/* Services */
+.services{padding-block:96px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head h2{font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em}
+.sec-head .kicker{color:var(--cyan-ink)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc div{background:var(--paper);border-radius:6px;padding:26px 24px;min-width:0;box-shadow:0 1px 3px rgba(18,24,27,.06)}
+.svc h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.svc p{margin:0;color:var(--muted);font-size:15px}
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+.steps li{counter-increment:s;min-width:0;border-top:2px solid var(--ink);padding-top:16px}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--mono);font-size:13px;color:var(--cyan-ink);margin-bottom:8px}
+.steps h3{font-size:18px;font-weight:600;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:15px}
+
+/* Contact */
+.contact{background:var(--night);color:var(--on-dark);position:relative;overflow:hidden}
+.contact .wrap{padding-block:96px;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.contact .kicker{color:var(--cyan)}
+.contact h2{font-weight:700;font-size:clamp(34px,4.6vw,56px);line-height:1.05;letter-spacing:-.035em;margin:14px 0 18px}
+.contact p{color:var(--on-dark-muted);margin:0;max-width:46ch}
+.links{list-style:none;margin:0;padding:0;border-top:1px solid #2A3337;min-width:0}
+.links li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid #2A3337;flex-wrap:wrap}
+.links .lb{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-muted)}
+.links a,.links .val{font-family:var(--mono);font-size:15px;text-decoration:none;color:var(--on-dark);overflow-wrap:anywhere}
+.links a:hover{color:var(--cyan)}
+.copy{font-family:var(--mono);font-size:12px;background:none;border:1px solid #3A464B;color:var(--on-dark);border-radius:999px;padding:5px 11px;cursor:pointer;margin-left:10px}
+.copy:hover{border-color:var(--cyan);color:var(--cyan)}
+footer{background:var(--night);color:var(--on-dark-muted);font-size:13px;border-top:1px solid #1E2629}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{text-decoration:none}footer a:hover{color:var(--cyan)}
+
+
+dialog{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+dialog::backdrop{background:rgba(8,10,12,.88)}
+dialog img{display:block;max-width:100%;max-height:86vh;width:auto;height:auto;border-radius:6px}
+dialog button{position:absolute;top:8px;right:8px;background:rgba(8,10,12,.8);color:#fff;border:0;border-radius:4px;padding:6px 12px;font-family:var(--body);cursor:pointer}
+
+@media (max-width:980px){
+  .menu{display:none}
+  .split-row{grid-template-columns:1fr 1fr;gap:28px}
+  .flow{grid-column:1/-1;grid-row:1}
+  .side.left{text-align:left}.side.left p{margin-left:0}
+  .codebg{display:none}
+  .cards{grid-template-columns:1fr 1fr}
+  .case-head,.about .wrap,.contact .wrap{grid-template-columns:1fr;gap:40px}
+  .stage{grid-template-columns:1fr 180px}
+  .highlights,.svc,.steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .social a.gh{display:none}
+  .logo span{display:none}
+  .split-row{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .case{padding-block:64px 8px}
+  .stage{grid-template-columns:1fr}
+  .mobile{width:62%;justify-self:center}
+  .thumbs{grid-template-columns:1fr 1fr}
+  .thumbs .thumb:nth-child(3){display:none}
+  .facts{grid-template-columns:1fr 1fr}
+  .highlights,.svc,.steps{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Paola Costa, início"><i>PC</i><span>Paola Costa</span></a>
+    <nav class="menu" aria-label="Seções"><a href="#trabalhos">Trabalhos</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></nav>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/paolaafscosta/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="gh" href="https://github.com/paahfsc" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <span class="ring" style="width:560px;height:560px;left:-280px;top:-160px" aria-hidden="true"></span>
+  <span class="ring" style="width:90px;height:90px;right:8%;top:48px" aria-hidden="true"></span>
+  <svg class="mesh" viewBox="0 0 240 200" aria-hidden="true"><g fill="none" stroke="#2CD3E1" stroke-width="1"><path d="M0 200 L60 120 L130 170 L190 90 L240 140"/><path d="M0 140 L60 120 L90 60 L190 90"/><path d="M60 120 L130 170 L90 60"/><path d="M130 170 L240 200"/></g><g fill="#2CD3E1"><circle cx="60" cy="120" r="2.5"/><circle cx="130" cy="170" r="2.5"/><circle cx="190" cy="90" r="2.5"/><circle cx="90" cy="60" r="2.5"/></g></svg>
+  <pre class="codebg" aria-hidden="true">&lt;section class="hero"&gt;
+  display: grid;
+&lt;a href="https://wa.me/..."&gt;
+  @media (max-width: 600px)
+&lt;meta name="description"&gt;
+  export default App;</pre>
+  <div class="wrap">
+    <div class="hello">
+      <span class="kicker">Portfólio</span>
+      <h1>Olá, eu sou <b>Paola Costa</b></h1>
+      <p class="role">Estudante de Engenharia de Software · Desenvolvimento de sites</p>
+    </div>
+    <div class="split-row">
+      <div class="side left">
+        <span class="word">design</span>
+        <p>Layouts claros e profissionais, pensados para a marca de cada cliente e para quem acessa pelo celular.</p>
+      </div>
+      <div class="flow" role="img" aria-label="Editor de código com o componente da página inicial de um site">
+        <div class="flow-bar"><i></i><i></i><i></i><span>src/components/Hero.jsx</span><em>React</em></div>
+<pre class="code"><span class="l"><span class="c">// Página inicial do site do cliente</span></span><span class="l"><span class="k">export default function</span> <span class="f">Hero</span>() {</span><span class="l">  <span class="k">return</span> (</span><span class="l">    &lt;<span class="t">section</span> <span class="a">className</span>=<span class="s">"hero"</span>&gt;</span><span class="l hl">      &lt;<span class="t">h1</span>&gt;Seu negócio no lugar certo&lt;/<span class="t">h1</span>&gt;</span><span class="l">      &lt;<span class="t">p</span>&gt;Rápido, bonito e fácil de achar.&lt;/<span class="t">p</span>&gt;</span><span class="l">      &lt;<span class="t">a</span> <span class="a">href</span>={<span class="f">linkWhatsApp</span>}&gt;</span><span class="l">        Pedir orçamento</span><span class="l">      &lt;/<span class="t">a</span>&gt;</span><span class="l">    &lt;/<span class="t">section</span>&gt;</span><span class="l">  );</span><span class="l">}</span></pre>
+        <div class="status-bar"><span><b>build concluído</b> em 1,2s</span><span>deploy · vercel</span></div>
+      </div>
+      <div class="side right">
+        <span class="word dev">&lt;dev&gt;</span>
+        <p>Código organizado que transforma o layout em sites rápidos, responsivos e prontos para aparecer no Google.</p>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" href="#trabalhos">Ver trabalhos</a>
+      <a class="btn ghost" href="#contato">Entrar em contato</a>
+    </div>
+  </div>
+</section>
+
+<main id="trabalhos">
+  <section class="wrap latest">
+    <div class="rule-head"><h2>Alguns dos meus trabalhos recentes</h2></div>
+    <div class="cards">
+      <a class="card" href="#sedare"><div class="pic"><img src="img/sedare-1.jpg" alt="" width="800" height="499" loading="lazy"></div><div class="cap"><strong>SEDARE Odontologia</strong><span>Site institucional</span></div></a>
+      <a class="card" href="#ls"><div class="pic"><img src="img/ls-1.jpg" alt="" width="800" height="499" loading="lazy"></div><div class="cap"><strong>L&amp;S Transportes de Autos</strong><span>Site institucional</span></div></a>
+      <a class="card" href="#closet"><div class="pic"><img src="img/closet-1.jpg" alt="" width="800" height="499" loading="lazy"></div><div class="cap"><strong>Second Closet by GN</strong><span>Loja virtual · em desenvolvimento</span></div></a>
+    </div>
+  </section>
+
+  <article class="case" id="sedare">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <span class="kicker">Saúde · Site institucional</span>
+          <h2>SEDARE Odontologia &amp; Medicina</h2>
+          <span class="status"><span class="dot"></span>Publicado</span>
+        </div>
+        <div class="case-text">
+          <p>Site para uma clínica odontológica em Brotas que atende crianças, adultos, pacientes neurodivergentes e pessoas com medo de dentista. O visual em verde e dourado e as fotos reais da equipe transmitem acolhimento logo na primeira tela.</p>
+          <dl class="facts">
+            <div><dt>Segmento</dt><dd>Saúde</dd></div>
+            <div><dt>Entrega</dt><dd>Design e código</dd></div>
+            <div><dt>Local</dt><dd>Brotas – SP</dd></div>
+          </dl>
+          <ul class="tech" aria-label="Tecnologias"><li>React</li><li>Vite</li><li>CSS</li><li>Vercel</li><li>SEO</li></ul>
+          <a class="visit" href="https://sedare-site.vercel.app" target="_blank" rel="noopener">Visitar o site</a>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="frame">
+          <div class="chrome"><i></i><i></i><i></i><span>sedare-site.vercel.app</span></div>
+          <button class="shot" type="button" data-full="img/sedare-1.jpg" aria-label="Ampliar página inicial da SEDARE"><img src="img/sedare-1.jpg" alt="Página inicial do site da SEDARE" width="800" height="499" loading="lazy"></button>
+        </div>
+        <div class="mobile"><img src="img/sedare-m.jpg" alt="Site da SEDARE no celular" width="375" height="812" loading="lazy"></div>
+      </div>
+      <div class="thumbs">
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/sedare-2.jpg" aria-label="Ampliar seção Sobre"><img src="img/sedare-2.jpg" alt="Seção Sobre a SEDARE" width="800" height="499" loading="lazy"></button></div><figcaption>Apresentação da clínica</figcaption></figure>
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/sedare-3.jpg" aria-label="Ampliar seção de atendimentos"><img src="img/sedare-3.jpg" alt="Cards de atendimento especializado" width="800" height="499" loading="lazy"></button></div><figcaption>Atendimentos especializados</figcaption></figure>
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/sedare-4.jpg" aria-label="Ampliar seção de sedação"><img src="img/sedare-4.jpg" alt="Seção sobre sedação consciente" width="800" height="499" loading="lazy"></button></div><figcaption>Sedação consciente</figcaption></figure>
+      </div>
+      <div class="highlights">
+        <div><h3>Conteúdo por público</h3><p>Seções próprias para neurodivergentes, odontofobia, crianças e adultos.</p></div>
+        <div><h3>Agendamento direto</h3><p>Botões de WhatsApp fixos e no topo de cada seção.</p></div>
+        <div><h3>SEO local</h3><p>Título, descrição e palavras-chave para buscas na região.</p></div>
+        <div><h3>Prévia ao compartilhar</h3><p>Imagem e texto configurados para WhatsApp e redes sociais.</p></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case" id="ls">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <span class="kicker">Transporte · Site institucional</span>
+          <h2>L&amp;S Transportes de Autos</h2>
+          <span class="status"><span class="dot"></span>Publicado</span>
+        </div>
+        <div class="case-text">
+          <p>Site para uma empresa de transporte e remoção de veículos com atendimento 24 horas. Cada serviço, botão e o formulário levam a um orçamento pelo WhatsApp com a mensagem já preenchida. Inclui galeria com fotos reais da frota e mapa das cidades atendidas.</p>
+          <dl class="facts">
+            <div><dt>Segmento</dt><dd>Transporte</dd></div>
+            <div><dt>Entrega</dt><dd>Design e código</dd></div>
+            <div><dt>Domínio</dt><dd>Próprio .com.br</dd></div>
+          </dl>
+          <ul class="tech" aria-label="Tecnologias"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Mapa interativo</li><li>SEO</li></ul>
+          <a class="visit" href="https://lstransportesdeautos.com.br/" target="_blank" rel="noopener">Visitar o site</a>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="frame">
+          <div class="chrome"><i></i><i></i><i></i><span>lstransportesdeautos.com.br</span></div>
+          <button class="shot" type="button" data-full="img/ls-1.jpg" aria-label="Ampliar página inicial da L&amp;S"><img src="img/ls-1.jpg" alt="Página inicial do site da L&amp;S Transportes" width="800" height="499" loading="lazy"></button>
+        </div>
+        <div class="mobile"><img src="img/ls-m.jpg" alt="Site da L&amp;S no celular" width="375" height="812" loading="lazy"></div>
+      </div>
+      <div class="thumbs">
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/ls-2.jpg" aria-label="Ampliar lista de serviços"><img src="img/ls-2.jpg" alt="Lista de serviços com link para orçamento" width="800" height="499" loading="lazy"></button></div><figcaption>Serviços com orçamento em um toque</figcaption></figure>
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/ls-4.jpg" aria-label="Ampliar mapa de atendimento"><img src="img/ls-4.jpg" alt="Mapa interativo com cidades atendidas" width="800" height="499" loading="lazy"></button></div><figcaption>Mapa interativo de atendimento</figcaption></figure>
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/ls-5.jpg" aria-label="Ampliar formulário de orçamento"><img src="img/ls-5.jpg" alt="Formulário de orçamento enviado pelo WhatsApp" width="800" height="499" loading="lazy"></button></div><figcaption>Formulário que envia pelo WhatsApp</figcaption></figure>
+      </div>
+      <div class="highlights">
+        <div><h3>Formulário organizado</h3><p>Origem, destino, veículo e data chegam prontos na conversa.</p></div>
+        <div><h3>Galeria da frota</h3><p>Fotos reais dos caminhões, com ampliação ao toque.</p></div>
+        <div><h3>Mapa de cidades</h3><p>Base e cidades atendidas em um mapa interativo.</p></div>
+        <div><h3>Área para empresas</h3><p>Seção de parcerias para seguradoras, oficinas e concessionárias.</p></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case" id="closet">
+    <div class="wrap">
+      <div class="case-head">
+        <div>
+          <span class="kicker">Moda · Loja virtual</span>
+          <h2>Second Closet by GN</h2>
+          <span class="status"><span class="dot wip"></span>Em desenvolvimento</span>
+        </div>
+        <div class="case-text">
+          <p>Loja virtual para um brechó de moda second hand com curadoria. A identidade é minimalista, em preto e branco com tipografia elegante, para destacar as peças. O site terá catálogo com filtros, carrinho, página de novidades e um fluxo para quem quer desapegar das próprias roupas.</p>
+          <dl class="facts">
+            <div><dt>Segmento</dt><dd>Moda</dd></div>
+            <div><dt>Entrega</dt><dd>Design e código</dd></div>
+            <div><dt>Previsão</dt><dd>Em breve</dd></div>
+          </dl>
+          <ul class="tech" aria-label="Recursos"><li>Catálogo</li><li>Filtros</li><li>Carrinho</li><li>Responsivo</li></ul>
+          <p class="note">Projeto em construção. As imagens mostram a versão atual.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="frame">
+          <div class="chrome"><i></i><i></i><i></i><span>Second Closet by GN · prévia</span></div>
+          <button class="shot" type="button" data-full="img/closet-1.jpg" aria-label="Ampliar página inicial da Second Closet"><img src="img/closet-1.jpg" alt="Página inicial da loja Second Closet" width="800" height="499" loading="lazy"></button>
+        </div>
+        <div class="mobile"><img src="img/closet-m.jpg" alt="Loja Second Closet no celular" width="375" height="812" loading="lazy"></div>
+      </div>
+      <div class="thumbs">
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/closet-4.jpg" aria-label="Ampliar página da loja"><img src="img/closet-4.jpg" alt="Página da loja com filtros de busca e preço" width="800" height="499" loading="lazy"></button></div><figcaption>Catálogo com busca e filtros</figcaption></figure>
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/closet-2.jpg" aria-label="Ampliar página Desapegue"><img src="img/closet-2.jpg" alt="Página Desapegue com passo a passo" width="800" height="499" loading="lazy"></button></div><figcaption>Passo a passo do desapego</figcaption></figure>
+        <figure class="thumb"><div class="frame"><button class="shot" type="button" data-full="img/closet-3.jpg" aria-label="Ampliar chamada para desapego"><img src="img/closet-3.jpg" alt="Chamada para desapego na página inicial" width="800" height="499" loading="lazy"></button></div><figcaption>Chamada para novas peças</figcaption></figure>
+      </div>
+    </div>
+  </article>
+</main>
+
+<section class="dark about" id="sobre">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Sobre mim</span>
+      <h2>Engenharia de software aplicada a problemas reais de pequenos negócios.</h2>
+    </div>
+    <div>
+      <p>Sou <strong>Paola Costa</strong>, estudante de <strong>Engenharia de Software</strong>. Desenvolvo sites e sistemas web para pequenas e médias empresas que querem uma presença online profissional.</p>
+      <p>Trabalho o projeto por inteiro: entendo o negócio, desenho a solução, escrevo o código e coloco no ar. Junto o que aprendo na faculdade com projetos para clientes reais, como os que estão nesta página.</p>
+      <div class="skills">
+        <div><h3>Desenvolvimento de sites</h3><ul class="chips hl"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>React</li><li>Vite</li><li>Git e GitHub</li><li>Vercel</li></ul></div>
+        <div><h3>IA</h3><ul class="chips"><li>IA generativa</li><li>Engenharia de prompts</li><li>IA no desenvolvimento</li></ul></div>
+        <div><h3>Design e entrega</h3><ul class="chips"><li>UI design</li><li>Design responsivo</li><li>SEO local</li><li>Domínio e publicação</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="sec-head"><h2>Serviços</h2><span class="kicker">Sites e sistemas web</span></div>
+    <div class="svc">
+      <div><h3>Sites institucionais</h3><p>Apresentação completa da empresa, serviços, fotos e contato em um só lugar.</p></div>
+      <div><h3>Landing pages</h3><p>Páginas focadas em uma oferta ou campanha, feitas para gerar contatos.</p></div>
+      <div><h3>Lojas virtuais</h3><p>Catálogo de produtos com busca, filtros e carrinho.</p></div>
+      <div><h3>Redesign de sites</h3><p>Atualização de sites antigos com visual moderno e versão para celular.</p></div>
+      <div><h3>Manutenção</h3><p>Ajustes, novas seções e atualização de conteúdo depois que o site está no ar.</p></div>
+      <div><h3>Publicação e domínio</h3><p>Registro do domínio, hospedagem e colocação do site no ar.</p></div>
+    </div>
+    <ol class="steps" aria-label="Como trabalho">
+      <li><h3>Briefing</h3><p>Conversa sobre o negócio, o público e os objetivos do site.</p></li>
+      <li><h3>Layout</h3><p>Proposta visual com suas cores, fotos e textos para aprovação.</p></li>
+      <li><h3>Desenvolvimento</h3><p>Código, integração com WhatsApp e testes em vários aparelhos.</p></li>
+      <li><h3>Publicação</h3><p>Site no ar no seu domínio e acompanhamento dos primeiros ajustes.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <span class="ring" style="width:420px;height:420px;right:-160px;top:-120px" aria-hidden="true"></span>
+  <div class="wrap">
+    <div>
+      <span class="kicker">Contato</span>
+      <h2>Vamos tirar sua ideia do papel?</h2>
+      <p>Me conte sobre o seu negócio e o que você precisa, seja um site novo ou a melhoria de um que já existe. Respondo com uma proposta sem compromisso.</p>
+      <div class="hero-cta" style="justify-content:flex-start;margin-top:32px">
+        <a class="btn" href="https://wa.me/5511959370758?text=Ol%C3%A1%20Paola!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+    </div>
+    <ul class="links">
+      <li><span class="lb">WhatsApp</span><span><a id="num" href="https://wa.me/5511959370758?text=Ol%C3%A1%20Paola!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener">(11) 95937-0758</a><button class="copy" data-copy="11959370758" type="button">Copiar</button></span></li>
+      <li><span class="lb">E-mail</span><span><a href="mailto:paolafscosta18@gmail.com">paolafscosta18@gmail.com</a><button class="copy" data-copy="paolafscosta18@gmail.com" type="button">Copiar</button></span></li>
+      <li><span class="lb">LinkedIn</span><a href="https://www.linkedin.com/in/paolaafscosta/" target="_blank" rel="noopener">in/paolaafscosta</a></li>
+      <li><span class="lb">GitHub</span><a href="https://github.com/paahfsc" target="_blank" rel="noopener">github.com/paahfsc</a></li>
+    </ul>
+  </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Paola Costa</span><span><a href="#inicio">Voltar ao topo</a></span></div></footer>
+
+<dialog id="lb" aria-label="Imagem ampliada"><button type="button" id="lbClose">Fechar</button><img id="lbImg" alt=""></dialog>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'), img=document.getElementById('lbImg');
+  document.querySelectorAll('.shot').forEach(function(b){
+    b.addEventListener('click',function(){
+      img.src=b.dataset.full; img.alt=(b.querySelector('img')||{}).alt||'';
+      if(lb.showModal) lb.showModal();
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click',function(){lb.close();});
+  lb.addEventListener('click',function(e){ if(e.target===lb) lb.close(); });
+  document.querySelectorAll('.copy').forEach(function(c){
+    c.addEventListener('click',function(){
+      var t=c.dataset.copy;
+      function ok(){c.textContent='Copiado';setTimeout(function(){c.textContent='Copiar';},2000);}
+      function sel(){var r=document.createRange();r.selectNodeContents(c.previousElementSibling);var g=getSelection();g.removeAllRanges();g.addRange(r);}
+      try{navigator.clipboard.writeText(t).then(ok,sel);}catch(e){sel();}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
